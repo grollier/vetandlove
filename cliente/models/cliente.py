@@ -1,7 +1,9 @@
 from __future__ import unicode_literals
+from django import forms
 
 from django.db import models
 from django.utils import timezone
+
 
 # Create your models here.
 class Cliente(models.Model):
@@ -10,8 +12,10 @@ class Cliente(models.Model):
     apellido = models.CharField('Apellido', max_length=50)
     dpi = models.CharField('DPI', max_length=13, unique=True)
     fechaNacimiento = models.DateField()
-    fechaCreacion = models.DateTimeField('publicado en', auto_now=True)
-    
+    fechaCreacion = models.DateTimeField('publicado_en', auto_now=True)
 
-    def __str__(self):
-        return self.nombre
+
+class FormCliente(forms.ModelForm):
+    class Meta:
+          model = Cliente
+          fields = '__all__'

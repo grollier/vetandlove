@@ -1,12 +1,15 @@
 from django.db import models
-from django.utils import timezone
+from django.core.validators import EmailValidator
+from django import forms
+
 from .cliente import Cliente
 
-# Create your models here.
 class Correo(models.Model):
-    cliente = models.OneToOneField(Cliente, on_delete=models.CASCADE)
     correoId = models.AutoField(primary_key=True)
-    correo = models.CharField(max_length=100)
+    correo = models.CharField(max_length=100, validators=[EmailValidator(message="Correo Invalido")])
+    cliente = models.OneToOneField(Cliente, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return "Usuario: %s %s" % (self.cliente.nombre, self.correo)
+class FormaCorreo(forms.ModelForm):
+    class Meta:
+          model = Correo
+          fields = '__all__'

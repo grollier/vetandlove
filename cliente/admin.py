@@ -15,6 +15,6 @@ class TelefonoInline(admin.TabularInline):
     
 class ClienteAdmin(admin.ModelAdmin):
     inlines = [CorreoInline, TelefonoInline]
-    list_display = ('clienteId', 'nombre', 'dpi', 'fechaCreacion')
-
+    list_display = ('nombre', 'dpi', 'fechaCreacion')
+    search_fields = ('nombre','dpi','fechaCreacion')
 admin.site.register(Cliente, ClienteAdmin)

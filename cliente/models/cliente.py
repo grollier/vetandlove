@@ -15,7 +15,7 @@ class Cliente(models.Model):
     fechaCreacion = models.DateTimeField('publicado_en', auto_now=True)
 
 def __str__(self):
-    return "%s " % self.nombre
+    return self.nombre
 
 class FormCliente(forms.ModelForm):
     class Meta:

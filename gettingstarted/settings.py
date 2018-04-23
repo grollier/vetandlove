@@ -34,6 +34,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'cliente.apps.ClienteConfig',
+    'mascota.apps.MascotaConfig',
+    'ordenDeTrabajo',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,8 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'cliente',
-    'mascota',
 ]
 
 MIDDLEWARE = [

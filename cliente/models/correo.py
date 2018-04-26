@@ -9,7 +9,5 @@ class Correo(models.Model):
     correo = models.CharField(max_length=100, validators=[EmailValidator(message="Correo Invalido")])
     cliente = models.OneToOneField(Cliente, on_delete=models.CASCADE)
 
-class FormaCorreo(forms.ModelForm):
-    class Meta:
-          model = Correo
-          fields = '__all__'
+    def __str__(self):
+        return "%s " % self.correo

@@ -10,14 +10,14 @@ from mascota.models import Mascota
 # Register your models here.
 class DireccionInline(admin.TabularInline):
     model = Direccion
-    extra = 0
+    max_num = 1
 
 class CorreoInline(admin.TabularInline):
     model = Correo
 
 class TelefonoInline(admin.TabularInline):
     model = Telefono
-    extra = 0
+    max_num = 1
     
 class ClienteAdmin(admin.ModelAdmin):
     inlines = [CorreoInline, TelefonoInline, DireccionInline]

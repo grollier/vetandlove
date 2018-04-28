@@ -1,5 +1,5 @@
 from django.conf.urls import include, url
-from django.urls import path
+from django.urls import path, include
 
 from django.contrib import admin
 admin.autodiscover()
@@ -10,5 +10,6 @@ admin.autodiscover()
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
+    path('clientes/', include('cliente.urls')),
     path('admin/', admin.site.urls),
 ]

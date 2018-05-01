@@ -11,13 +11,10 @@ class Cliente(models.Model):
     nombre = models.CharField('Nombre', max_length=50)
     apellido = models.CharField('Apellido', max_length=50)
     dpi = models.CharField('DPI', max_length=13, unique=True)
+    password = models.CharField(max_length=12, default='132435', editable=True)
     fechaNacimiento = models.DateField()
     fechaCreacion = models.DateTimeField('publicado_en', auto_now=True)
 
-def __str__(self):
-    return self.nombre
+    def __str__(self):
+        return self.nombre
 
-class FormCliente(forms.ModelForm):
-    class Meta:
-          model = Cliente
-          fields = '__all__'

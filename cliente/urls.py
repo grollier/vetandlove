@@ -1,7 +1,8 @@
 from django.urls import path
+from rest_framework import routers
 
 from . import views
 
-urlpatterns = [
-   path('', views.clienteList.as_view(), name='clientes'),
-]
+routerCliente = routers.DefaultRouter()
+routerCliente.register(r'cliente', views.ClienteViewSet)
+routerCliente.register(r'direccion', views.DireccionViewSet)

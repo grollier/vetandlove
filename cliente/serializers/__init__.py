@@ -1,3 +1,3 @@
 # import all your serializers here
 
-from .clienteSerializer import ClienteSerializer
+from .clienteSerializer import *

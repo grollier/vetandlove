@@ -8,9 +8,11 @@ from .models import Cliente, Correo, Telefono, Direccion, Municipio, Zona
 from mascota.models import Mascota
 
 # Register your models here.
+
 class DireccionInline(admin.TabularInline):
     model = Direccion
-    extra = 0
+    max_num = 1
+
 
 class CorreoInline(admin.TabularInline):
     model = Correo

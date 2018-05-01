@@ -1,13 +1,17 @@
 from django.shortcuts import render
 
-from rest_framework import status, generics, mixins
+from rest_framework import status, generics, mixins, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .models import Cliente
-from .serializers import ClienteSerializer
+from .models import Cliente, Direccion
+from .serializers import UserSerializer, DireccionSerializer
 
 # Create your views here.
-class clienteList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
-    serializer_class = ClienteSerializer
+    serializer_class = UserSerializer
+
+class DireccionViewSet(viewsets.ModelViewSet):
+    queryset = Direccion.objects.all()
+    serializer_class = DireccionSerializer

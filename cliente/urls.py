@@ -1,8 +1,9 @@
-# Create all your URLs here
 from django.urls import path
+from rest_framework import routers
 
 from . import views
+from . import views
 
-urlpatterns = [
-    path('clientes', views.cliente_json, name='clientes'),
-]
+routerCliente = routers.DefaultRouter()
+routerCliente.register(r'cliente', views.ClienteViewSet)
+routerCliente.register(r'direccion', views.DireccionViewSet)

@@ -17,8 +17,6 @@ Markdown = "*"
 django-filter = "*"
 django-crispy-forms = "*"
 django-guardian = "*"
-httpie = "*"
-dajngo-zurb-foundation = "*"
 
 [requires]
 

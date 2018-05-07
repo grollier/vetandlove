@@ -1,25 +1,23 @@
 from rest_framework import serializers
 
-from mascota.models import Mascota, Especie
+from mascota.models import Mascota, Raza
+from cliente.models import Cliente
 
 # Create all serializers here
-'''
-class MascotaSerializer(serializers.ModelSerializer):
+class ClienteSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Mascota
+        model = Cliente
+        fields = ('clienteId',)
+
+class RazaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Raza
         fields = '__all__'
-'''
-
-class EspecieSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Especie
-        fields = ('nombre','tipoEspecie')
-
 
 class PetSerializer(serializers.ModelSerializer):
-    #mascota = MascotaSerializer()
-    especie = EspecieSerializer()
+    cliente = ClienteSerializer()
+    raza = RazaSerializer()
     class Meta:
         model = Mascota
-        fields = ('nombre', 'observaciones', 'fechaNacimiento', 'especie','raza')
+        fields = ('cliente','mascotaId', 'nombre', 'observaciones', 'fechaNacimiento','raza', 'especie')
         depth = 1

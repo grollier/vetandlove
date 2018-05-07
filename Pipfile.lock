@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d19bf75fd894d9e2d3f13f2ce4547223ef20ecdf780adb4655554951fa9b948b"
+            "sha256": "fdb5fa3be68e733bc300802c6ae0522eb5ecbec187c09deddf7293db811b2d68"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -151,6 +151,13 @@
                 "sha256:a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
             ],
             "version": "==1.0"
+        },
+        "phonenumberslite": {
+            "hashes": [
+                "sha256:9358d8fb745fa76360a80e9ebc621b0e8f855767f8f2e0308d988a6609103e9a",
+                "sha256:dd18e7c3a7858fd627b800ee4e4ccf501a83b0820d258e98832ed3aec5678ba0"
+            ],
+            "version": "==8.9.5"
         },
         "psycopg2": {
             "hashes": [

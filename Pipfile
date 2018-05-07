@@ -18,7 +18,7 @@ django-filter = "*"
 django-crispy-forms = "*"
 django-guardian = "*"
 django-phonenumber-field = "*"
-
+phonenumberslite = "*"
 
 [requires]
 

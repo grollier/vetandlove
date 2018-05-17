@@ -3,7 +3,6 @@ from django.db import models
 
 class Especie(models.Model):
     especieId = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=128)
     TIPO_ESPECIE = (
        ('Perro', 'PERRO'),
        ('Gato', 'GATO'),

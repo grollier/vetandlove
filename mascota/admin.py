@@ -5,4 +5,22 @@ from .models import *
 
 # Register your models here.
 myModels = [Mascota]
-admin.site.register(myModels)
+
+class MascotaAdmin(admin.ModelAdmin):
+    model = Mascota
+    fieldsets = (
+        ('Nombre del Dueno', {
+            'fields': ('cliente',)
+        }),
+        ('Informacion de la Mascota', {
+            'fields': ('nombreMascota', 'fechaNacimiento', 'especie', 'raza',)
+        }),
+        ('Observacions', {
+            'classes': ('collapse',),
+            'fields': ('observaciones',),
+        }),
+    )
+    list_display = ('nombreMascota', 'raza', 'especie', 'cliente')
+    search_fields = ('nombreMascota', 'raza', 'cliente')
+
+admin.site.register(myModels, MascotaAdmin)

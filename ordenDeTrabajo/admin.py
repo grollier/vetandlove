@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.admin import UserAdmin
 
 from django.db import models
-from .models import Orden, Servicio, Tipos, Estado, Detalle
+from .models import Orden, Servicio, Estado, Detalle
 from cliente.models import Cliente
 from mascota.models import Mascota
 
@@ -11,12 +11,13 @@ from mascota.models import Mascota
 class ServicioInline(admin.TabularInline):
     model = Servicio
     max_num = 1
-
+    exclude = ('tipoServicio',)
+'''
 class DetalleInline(admin.TabularInline):
     model = Detalle
-
+'''
 
 class OrdenInline(admin.ModelAdmin):
-    inlines = [ServicioInline, DetalleInline]
-
+    inlines = [ServicioInline,]
+    list_display = ('cliente', 'mascota', 'estado', 'fechaCreacion', 'facturaAsociada')
 admin.site.register(Orden, OrdenInline)

@@ -4,13 +4,6 @@ from rest_framework import serializers
 from cliente.models import Cliente, Correo, Direccion
 
 # Create all your models here
-'''
-class ClienteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cliente
-        fields = '__all__'
-'''
-
 class CorreoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Correo

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 from django.db import models
 
@@ -31,6 +32,8 @@ class ClienteCreationForm(forms.ModelForm):
         fields = ('username', 'email')
     
     def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 - self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("La contrasena no es la misma")
         return password2
@@ -58,7 +61,7 @@ class ClienteAdmin(admin.ModelAdmin):
     list_display = ('username','nombreCliente','email','fechaCreacion',)
     list_filter = ('username', 'nombreCliente')
     fieldsets = (
-        (None, {'fields': ('username', 'email',)}),
+        (None, {'fields': ('username', 'email', 'password')}),
         ('Informacion Personal', {'fields': ('nombreCliente','apellido','fechaNacimiento', 'fechaCreacion')}),
         ('Permisos', {'fields': ('is_active',)}),
     )

@@ -11,6 +11,7 @@ admin.autodiscover()
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    path('usuarios/', include(routerCliente.urls)),
-    path('admin/', admin.site.urls),
+    url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^usuarios/', include(routerCliente.urls)),
+    url(r'^admin/', admin.site.urls),
 ]

@@ -16,7 +16,6 @@ class ClienteManager(BaseUserManager):
             username = self.normalize_username(username),
             email = delf.normalize_email(email),
             fechaNacimiento = fechaNacimiento,
-            password = 12345,
         )
 
         cliente.set_password(password)
@@ -48,8 +47,8 @@ class Cliente(AbstractBaseUser):
          "Designa si el usuario es o no un miembro activo del sistema"
         ),
     )
-    fechaNacimiento = models.DateField(_('Fecha de Nacimiento'), default=timezone.now)
-    fechaCreacion = models.DateTimeField(_('Publicado_en'))
+    fechaNacimiento = models.DateField(_('Fecha de Nacimiento'),)
+    fechaCreacion = models.DateTimeField(_('Publicado_en'), default=timezone.now)
 
     objects = ClienteManager()
 

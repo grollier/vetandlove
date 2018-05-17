@@ -10,7 +10,22 @@ from mascota.models import Mascota
 # Register your models here.
 class ServicioInline(admin.TabularInline):
     model = Servicio
+    exclude = ('tipoServicio',)
     max_num = 1
+<<<<<<< HEAD
+
+class TiposInline(admin.TabularInline):
+    model = Tipos
+    max_num = 1
+"""
+class DetalleInline(admin.TabularInline):
+    model = Detalle
+"""
+
+class OrdenInline(admin.ModelAdmin):
+    inlines = [ServicioInline,TiposInline,]
+    list_display= ('cliente', 'mascota', 'horaRecepcion', 'horaEntrega', 'estado', 'fechaCreacion')
+=======
     exclude = ('tipoServicio',)
 '''
 class DetalleInline(admin.TabularInline):
@@ -19,6 +34,6 @@ class DetalleInline(admin.TabularInline):
 
 class OrdenInline(admin.ModelAdmin):
     inlines = [ServicioInline,]
-    exclude = ('nombreOrden',)
     list_display = ('cliente', 'mascota', 'estado', 'fechaCreacion', 'facturaAsociada')
+>>>>>>> serializers_feature
 admin.site.register(Orden, OrdenInline)

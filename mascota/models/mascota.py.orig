@@ -9,13 +9,25 @@ from cliente.models import Cliente
 
 class Mascota(models.Model):
     mascotaId = models.AutoField(primary_key=True)
+<<<<<<< HEAD
+    nombre = models.CharField('Nombre', max_length=50)
+    observaciones = models.CharField(max_length=240, blank=True)
+    fechaNacimiento = models.DateField('Fecha de Nacimiento')
+=======
     nombreMascota = models.CharField(max_length=50)
     observaciones = models.CharField(max_length=240, blank=True)
     fechaNacimiento = models.DateField()
+>>>>>>> serializers_feature
     fechaCreacion = models.DateTimeField('publicado en',auto_now_add=True)
     especie = models.ForeignKey(Especie, on_delete=models.CASCADE)
     raza = models.ForeignKey(Raza, on_delete=models.CASCADE, default=False)
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, default=False)
 
     def __str__(self):
+<<<<<<< HEAD
+        return "%s " % (self.nombre)
+
+    list_display = ('cliente', 'nombre','origen', 'fechaNacimiento', 'especie', 'fechaCreacion')
+=======
         return "%s " % (self.nombreMascota)
+>>>>>>> serializers_feature

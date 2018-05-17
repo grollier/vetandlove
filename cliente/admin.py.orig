@@ -14,6 +14,14 @@ class DireccionInline(admin.TabularInline):
     model = Direccion
     max_num = 1
 
+<<<<<<< HEAD
+class CorreoInline(admin.TabularInline):
+    model = Correo
+
+class TelefonoInline(admin.TabularInline):
+    model = Telefono
+    max_num = 1
+=======
 
 #class CorreoInline(admin.TabularInline):
 #   model = Correo
@@ -30,6 +38,7 @@ class ClienteCreationForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = ('username', 'email')
+>>>>>>> serializers_feature
     
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -55,6 +64,13 @@ class ClienteChangeForm(forms.ModelForm):
 
 
 class ClienteAdmin(admin.ModelAdmin):
+<<<<<<< HEAD
+    inlines = [CorreoInline, TelefonoInline, DireccionInline]
+    list_display = ('nombre', 'dpi', 'fechaCreacion')
+    search_fields = ('nombre','dpi','fechaCreacion')
+    exclude = ('password',)
+admin.site.register(Cliente, ClienteAdmin,)
+=======
     form = ClienteChangeForm
     add_form = ClienteCreationForm
 
@@ -75,3 +91,4 @@ class ClienteAdmin(admin.ModelAdmin):
     inlines = [TelefonoInline, DireccionInline]
 
 admin.site.register(Cliente, ClienteAdmin)
+>>>>>>> serializers_feature

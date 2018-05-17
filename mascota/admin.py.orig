@@ -4,6 +4,13 @@ from django.db import models
 from .models import *
 
 # Register your models here.
+<<<<<<< HEAD
+myModels = [Mascota,]
+
+class MascotaAdmin(admin.ModelAdmin):
+    list_display = ('nombre','raza','especie','fechaNacimiento', 'cliente', 'fechaCreacion')
+admin.site.register(myModels, MascotaAdmin,)
+=======
 myModels = [Mascota]
 
 class MascotaAdmin(admin.ModelAdmin):
@@ -24,3 +31,4 @@ class MascotaAdmin(admin.ModelAdmin):
     search_fields = ('nombreMascota', 'raza', 'cliente')
 
 admin.site.register(myModels, MascotaAdmin)
+>>>>>>> serializers_feature

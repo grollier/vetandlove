@@ -61,7 +61,7 @@ class ClienteAdmin(admin.ModelAdmin):
     list_display = ('username','nombreCliente','email','fechaCreacion',)
     list_filter = ('username', 'nombreCliente')
     fieldsets = (
-        (None, {'fields': ('username', 'email', 'password')}),
+        (None, {'fields': ('username', 'email',)}),
         ('Informacion Personal', {'fields': ('nombreCliente','apellido','fechaNacimiento', 'fechaCreacion')}),
         ('Permisos', {'fields': ('is_active',)}),
     )

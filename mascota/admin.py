@@ -9,7 +9,7 @@ myModels = [Mascota]
 class MascotaAdmin(admin.ModelAdmin):
     model = Mascota
     fieldsets = (
-        ('Nombre del Dueno', {
+        ('Nombre del Dueño', {
             'fields': ('cliente',)
         }),
         ('Informacion de la Mascota', {

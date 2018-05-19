@@ -7,5 +7,5 @@ from .models import *
 myModels = [Mascota,]
 
 class MascotaAdmin(admin.ModelAdmin):
-    list_display = ('nombre','raza','especie','fechaNacimiento', 'cliente', 'fechaCreacion')
+    list_display = ('nombreMascota','raza','especie','fechaNacimiento', 'fechaCreacion', 'owner')
 admin.site.register(myModels, MascotaAdmin,)

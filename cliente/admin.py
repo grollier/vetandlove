@@ -22,7 +22,7 @@ class TelefonoInline(admin.TabularInline):
     
 class ClienteAdmin(admin.ModelAdmin):
     inlines = [CorreoInline, TelefonoInline, DireccionInline]
-    list_display = ('nombre', 'dpi', 'fechaCreacion')
-    search_fields = ('nombre','dpi','fechaCreacion')
-    exclude = ('password',)
+    list_display = ('nombreCliente', 'fechaCreacion')
+    search_fields = ('nombreCliente','fechaCreacion')
+    
 admin.site.register(Cliente, ClienteAdmin,)

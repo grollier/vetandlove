@@ -8,6 +8,3 @@ from .models import Mascota
 from .serializers import PetSerializer
 
 # Create your views here.
-class MascotaViewSet(viewsets.ModelViewSet):
-    queryset = Mascota.objects.all()
-    serializer_class = PetSerializer

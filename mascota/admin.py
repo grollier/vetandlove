@@ -13,15 +13,14 @@ class MascotaAdmin(admin.ModelAdmin):
             'fields': ('owner',)
         }),
         ('Informacion de la Mascota', {
-            'fields': ('nombreMascota', 'fechaNacimiento', ('especie', 'raza'),)
+            'fields': ('nombreMascota', 'fechaNacimiento', ('especie', 'raza'), ('peso', 'altura'))
         }),
-        ('Observacions', {
-            'classes': ('collapse',),
-            'fields': ('observaciones',),
+        ('observaciones', {
+             'classes': ('collapse',),
+             'fields': ('observaciones',),
         }),
     )
     list_display = ('nombreMascota', 'raza', 'especie', 'owner')
     search_fields = ('nombreMascota', 'raza', 'owner')
 
 admin.site.register(myModels, MascotaAdmin)
-

@@ -1,11 +1,7 @@
 from __future__ import unicode_literals
-
-from django import forms
 from django.db import models
-
-from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-
+from django.utils import timezone
 
 # Create your models here.
 class Cliente(models.Model):

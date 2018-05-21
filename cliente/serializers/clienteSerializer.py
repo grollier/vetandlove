@@ -3,7 +3,6 @@ from rest_framework import serializers
 
 from cliente.models import Cliente, Correo, Direccion
 from mascota.models import Mascota, Raza
-from mascota.serializers import PetSerializer
 
 # Create all your models here
 class CorreoSerializer(serializers.ModelSerializer):

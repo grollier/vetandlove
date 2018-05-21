@@ -1,7 +1,6 @@
 #Create your models here
 from django.db import models
 
-from .tipoServicio import Tipos
 from .ordenT import Orden
 
 class Servicio(models.Model):

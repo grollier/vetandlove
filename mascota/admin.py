@@ -4,8 +4,24 @@ from django.db import models
 from .models import *
 
 # Register your models here.
-myModels = [Mascota,]
+myModels = [Mascota]
 
 class MascotaAdmin(admin.ModelAdmin):
-    list_display = ('nombreMascota','raza','especie','fechaNacimiento', 'fechaCreacion', 'owner')
-admin.site.register(myModels, MascotaAdmin,)
+    model = Mascota
+    fieldsets = (
+        ('Nombre del Dueño', {
+            'fields': ('owner',)
+        }),
+        ('Informacion de la Mascota', {
+            'fields': ('nombreMascota', 'fechaNacimiento', ('especie', 'raza'),)
+        }),
+        ('Observacions', {
+            'classes': ('collapse',),
+            'fields': ('observaciones',),
+        }),
+    )
+    list_display = ('nombreMascota', 'raza', 'especie', 'owner')
+    search_fields = ('nombreMascota', 'raza', 'owner')
+
+admin.site.register(myModels, MascotaAdmin)
+

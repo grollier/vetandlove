@@ -2,15 +2,10 @@
 from rest_framework import serializers
 
 from cliente.models import Cliente, Correo, Direccion
+from mascota.models import Mascota, Raza
+from mascota.serializers import PetSerializer
 
 # Create all your models here
-'''
-class ClienteSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cliente
-        fields = '__all__'
-'''
-
 class CorreoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Correo
@@ -25,5 +20,5 @@ class UserSerializer(serializers.ModelSerializer):
     correo = CorreoSerializer()
     class Meta:
         model = Cliente
-        fields = ('clienteId','nombre','apellido','dpi','password','fechaNacimiento', 'correo',)
+        fields = ('clienteId','nombreCliente','apellido', 'password','fechaNacimiento', 'correo', 'mascotas', 'direcciones', 'ordenes')
         depth = 2

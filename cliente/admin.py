@@ -21,8 +21,15 @@ class TelefonoInline(admin.TabularInline):
     max_num = 1
     
 class ClienteAdmin(admin.ModelAdmin):
-    inlines = [CorreoInline, TelefonoInline, DireccionInline]
-    list_display = ('nombreCliente', 'fechaCreacion')
-    search_fields = ('nombreCliente','fechaCreacion')
-    
+    list_display = ('nombreCliente', 'apellido' , 'email', 'is_active')
+    list_filter = ('nombreCliente', 'is_active')
+    fieldsets = (
+        ('Cliente Nuevo', {'fields': ('nombreCliente', 'apellido', 'email')}),
+        (None, {'fields': ('fechaNacimiento',)}),
+        ('Estatus', {
+            'classes': ('extrapetty',),
+            'fields': ('is_active',),
+        }),
+    )
+    search_fields = ('nombreCliente', 'email', 'mascotas')
 admin.site.register(Cliente, ClienteAdmin,)

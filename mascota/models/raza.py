@@ -1,6 +1,9 @@
-from django.db import models
+# Create your models here
+import datetime
 
-# Create your models Here
+from django.db import models
+from django.utils import timezone
+
 class Especie(models.Model):
     especieId = models.AutoField(primary_key=True)
     TIPO_ESPECIE = (

@@ -9,9 +9,9 @@ class Direccion(models.Model):
     direccionId = models.AutoField(primary_key=True)
     direccion = models.CharField(max_length=240)
     colonia = models.CharField(max_length=100)
-    zona = models.OneToOneField(Zona, on_delete=models.CASCADE, default=False)
+    zona = models.ForeignKey(Zona, on_delete=models.CASCADE, default=False)
     municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE, default=False)
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='direcciones')
 
 
 def __str__(self):

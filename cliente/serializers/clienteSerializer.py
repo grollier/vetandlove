@@ -19,5 +19,5 @@ class UserSerializer(serializers.ModelSerializer):
     correo = CorreoSerializer()
     class Meta:
         model = Cliente
-        fields = ('clienteId','nombreCliente','apellido', 'password','fechaNacimiento', 'correo', 'mascotas', 'direcciones', 'ordenes')
+        fields = ('clienteId','nombreCliente','apellido', 'password','fechaNacimiento', 'email', 'mascotas', 'direcciones', 'ordenes')
         depth = 2

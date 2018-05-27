@@ -11,6 +11,7 @@ admin.autodiscover()
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
+    url(r'^', include('promotions.urls')),
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^usuarios/', include(routerCliente.urls)),
     url(r'^admin/', admin.site.urls),

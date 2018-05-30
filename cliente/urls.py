@@ -7,3 +7,4 @@ from . import views
 routerCliente = routers.DefaultRouter()
 routerCliente.register(r'cliente', views.ClienteViewSet)
 routerCliente.register(r'direccion', views.DireccionViewSet)
+routerCliente.register(r'pass-check', views.PassCheckViewSet)

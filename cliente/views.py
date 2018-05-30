@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Cliente, Direccion
-from .serializers import UserSerializer, DireccionSerializer
+from .serializers import UserSerializer, DireccionSerializer, PassSerializer
 
 # Create your views here.
 class ClienteViewSet(viewsets.ModelViewSet):
@@ -15,3 +15,7 @@ class ClienteViewSet(viewsets.ModelViewSet):
 class DireccionViewSet(viewsets.ModelViewSet):
     queryset = Direccion.objects.all()
     serializer_class = DireccionSerializer
+
+class PassCheckViewSet(viewsets.ModelViewSet):
+    queryset = Cliente.objects.all()
+    serializer_class = PassSerializer

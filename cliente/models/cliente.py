@@ -16,8 +16,8 @@ class Cliente(models.Model):
         ),
     )
     password = models.CharField(max_length=12, default=132435,editable=True)
-    fechaNacimiento = models.DateField(_('Fecha de Nacimiento'),)
-    fechaCreacion = models.DateTimeField(_('publicado en'), auto_now_add=True)
+    fechaNacimiento = models.DateField(_('Fecha de Nacimiento'),blank=True, null=True)
+    fechaCreacion = models.DateTimeField(_('publicado en'), auto_now_add=True, blank=True, null=True)
     las_edit = models.DateTimeField(_('updated_user'), default=timezone.now)
 
     def __str__(self):

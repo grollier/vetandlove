@@ -29,4 +29,5 @@ class ClienteAdmin(admin.ModelAdmin):
         }),
     )
     search_fields = ('nombreCliente', 'email', 'mascotas')
+    inlines = [DireccionInline, TelefonoInline]
 admin.site.register(Cliente, ClienteAdmin,)

@@ -6,7 +6,6 @@ from . import views
 
 routerCliente = routers.DefaultRouter()
 urlpatterns = [
-    url(r'^signup/', views.pass_confirm, name='pass_check')
 ]
 routerCliente.register(r'cliente', views.ClienteViewSet)
 routerCliente.register(r'direccion', views.DireccionViewSet)

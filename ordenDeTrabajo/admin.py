@@ -16,9 +16,30 @@ class ServicioInline(admin.TabularInline):
 class DetalleInline(admin.TabularInline):
     model = Detalle
 '''
+'''
+class ClienteOrden(admin.TabularInline):
+    model = Orden
+    fields = ('orden_cliente',)
+'''
+
+def mascota(Mascota):
+  mascota = Mascota.objects.filter(mascota=owner)
+  return ("%s ") % mascota.self
 
 class OrdenInline(admin.ModelAdmin):
-    inlines = [ServicioInline,]
+    inlines = [ServicioInline]
     exclude = ('nombreOrden',)
     list_display = ('cliente', 'mascota', 'estado', 'fechaCreacion', 'facturaAsociada')
+    fieldsets = (
+        ('Datos de Orden', {
+            'fields': ['horaRecepcion', 'horaEntregaAproximada', 'horaEntrega', 'estado']
+        }),
+        ('Cliente', {
+            'fields': ['cliente','mascota']
+        }),
+        ('Datos Adicionales', {
+            'classes': ('extrapretty',),
+            'fields': ('facturaAsociada', 'observaciones'),
+        }),
+    )
 admin.site.register(Orden, OrdenInline)

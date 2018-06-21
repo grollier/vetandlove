@@ -1,10 +1,8 @@
-# Create your models here
 import datetime
 
 from django.db import models
 from django.utils import timezone
 
-from ordenDeTrabajo.models import Servicio
 from .raza import Raza, Especie
 from cliente.models import Cliente
 
@@ -19,7 +17,6 @@ class Mascota(models.Model):
     especie = models.ForeignKey(Especie, on_delete=models.CASCADE)
     raza = models.ForeignKey(Raza, on_delete=models.CASCADE, default=False)
     owner = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='mascotas')    
-    serivio_mascota = models.ForeignKey(Servicio, on_delete=models.PROTECT, related_name='servicios_mascota', default=False)
 
     def __str__(self):
         return "%s " % (self.nombreMascota)

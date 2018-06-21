@@ -1,4 +1,3 @@
-# Create your models here
 import datetime
 
 from django.db import models
@@ -21,3 +20,4 @@ class Mascota(models.Model):
 
     def __str__(self):
         return "%s " % (self.nombreMascota)
+

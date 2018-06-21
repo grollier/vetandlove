@@ -6,10 +6,13 @@ from django.utils import timezone
 
 class Especie(models.Model):
     especieId = models.AutoField(primary_key=True)
+    PERRO = 'perro'
+    GATO = 'gato'
+    OTROS = 'otro'
     TIPO_ESPECIE = (
-       ('Perro', 'PERRO'),
-       ('Gato', 'GATO'),
-       ('Otros', 'OTRO'),
+       (PERRO, 'Perro'),
+       (GATO, 'Gato'),
+       (OTROS, 'Otros'),
     )
     tipoEspecie = models.CharField(max_length=5, choices=TIPO_ESPECIE)
 
@@ -18,7 +21,7 @@ class Especie(models.Model):
 
 class Kennel(models.Model):
     kennelId = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=128)
+    nombre_kennel = models.CharField(max_length=128)
     kennel = models.ManyToManyField(Especie, through='Raza')
 
     def __str__(self):
@@ -26,10 +29,10 @@ class Kennel(models.Model):
 
 class Raza(models.Model):
     razaId = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=128)
+    nombre_raza = models.CharField(max_length=128)
     origen = models.CharField(max_length=130)
-    especie = models.ForeignKey(Especie, on_delete=models.CASCADE, default=False)
-    kennel = models.ForeignKey(Kennel, on_delete=models.CASCADE, default=False)
+    especie_raza = models.ForeignKey(Especie, on_delete=models.CASCADE, default=False, related_name='especies')
+    kennel = models.ForeignKey(Kennel, on_delete=models.CASCADE, default=False, related_name='kennels')
 
     def __str__(self):
-       return "%s " % self.nombre
+       return "%s " % self.nombre_raza

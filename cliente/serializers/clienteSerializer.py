@@ -14,4 +14,4 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
         fields = ('clienteId','nombreCliente','apellido', 'password','fechaNacimiento', 'email', 'mascotas', 'direcciones', 'orden_cliente',)
-        depth = 3
+        depth = 2

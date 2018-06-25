@@ -2,3 +2,4 @@
 
 from .clienteSerializer import *
 from .passwordSerializer import *
+from .loginSerializer import *

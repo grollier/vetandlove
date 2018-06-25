@@ -8,6 +8,7 @@ routerCliente = routers.DefaultRouter()
 urlpatterns = [
 ]
 routerCliente.register(r'cliente', views.ClienteViewSet)
+routerCliente.register(r'login', views.LoginViewSet)
 routerCliente.register(r'direccion', views.DireccionViewSet)
-routerCliente.register(r'cliente-p/$', views.PassCheckViewSet)
+routerCliente.register(r'cambio_pass', views.PassCheckViewSet)
 

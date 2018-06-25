@@ -7,9 +7,13 @@ from rest_framework.response import Response
 
 from .models import Cliente, Direccion
 
-from .serializers import UserSerializer, DireccionSerializer, PassSerializer
+from .serializers import UserSerializer, DireccionSerializer, PassSerializer, LoginSerializer
 
 # Create your views here.
+class LoginViewSet(viewsets.ModelViewSet):
+    queryset = Cliente.objects.all()
+    serializer_class = LoginSerializer
+
 class ClienteViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = UserSerializer

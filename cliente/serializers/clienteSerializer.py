@@ -13,5 +13,5 @@ class DireccionSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cliente
-        fields = ('clienteId','nombreCliente','apellido', 'password','fechaNacimiento', 'email', 'mascotas', 'direcciones', 'orden_cliente','estado_orden', 'servicio_orden')
+        fields = ('clienteId','nombreCliente','apellido', 'password','fechaNacimiento', 'email', 'mascotas', 'direcciones', 'orden_cliente','estado_orden',)
         depth = 2

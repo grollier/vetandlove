@@ -21,7 +21,7 @@ class OrdenAdmin(admin.ModelAdmin):
         ('Orden Nueva', {'fields': ('cliente',)}),
         ('Ingrese Horario', {'fields': ('horaRecepcion', 'horaEntregaAproximada', 'horaEntrega')}),
         ('factura Asociada', {'fields': ('facturaAsociada',)}),
-        ('observasiones', {'classes': ('collapse',),
+        ('observaciones', {'classes': ('collapse',),
                 'fields': ('observaciones',)}),
     )
     inlines = [ServiciosInline, EstadoInline]

@@ -13,7 +13,7 @@ class EstadoInline(admin.TabularInline):
 
 class ServiciosInline(admin.TabularInline):
     model = Servicio
-    fields = ('servicios','mascotas', 'precio_servicio')
+    fields = ('servicios','mascota_servicio', 'precio_servicio')
     max_num = 1
 
 class OrdenAdmin(admin.ModelAdmin):

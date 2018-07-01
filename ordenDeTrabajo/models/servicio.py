@@ -2,7 +2,11 @@
 from django.db import models
 
 from mascota.models import Mascota
+from cliente.models import Cliente
 from .ordenT import Orden
+
+def MASCOTASERVICIO(Cliente):
+      mascotas_en_servicio = Cliente.mascotas
 
 class Servicio(models.Model):
     CONSULTA = 'CONSULTA'
@@ -91,5 +95,6 @@ class Servicio(models.Model):
         return self.servicios
 
     precio_servicio = models.DecimalField(max_digits=6, decimal_places=2,blank=True, help_text='Ingrese el precio del servicio',)
-    mascota_servicio = models.ForeignKey(Mascota, on_delete=models.CASCADE, related_name='servicio_mascota',default=False)
     ordenes = models.ForeignKey(Orden, on_delete=models.CASCADE, related_name='servicio_ordenes',default=False)
+    mascotas = MASCOTASERVICIO
+

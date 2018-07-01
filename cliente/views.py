@@ -6,8 +6,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Cliente, Direccion
+from mascota.models import Mascota
 
-from .serializers import UserSerializer, DireccionSerializer, PassSerializer, LoginSerializer
+from .serializers import UserSerializer, DireccionSerializer, PassSerializer, LoginSerializer, ServiciosSerializer
 
 # Create your views here.
 class LoginViewSet(viewsets.ModelViewSet):
@@ -26,3 +27,6 @@ class PassCheckViewSet(viewsets.ModelViewSet):
     queryset = Cliente.objects.all()
     serializer_class = PassSerializer
 
+class ServiciosViewSet(viewsets.ModelViewSet):
+    queryset = Mascota.objects.all()
+    serializer_class = ServiciosSerializer

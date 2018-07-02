@@ -17,7 +17,7 @@ class Especie(models.Model):
     tipoEspecie = models.CharField(max_length=5, choices=TIPO_ESPECIE)
 
     def __str__(self):
-        return "%s " % self.tipoEspecie
+        return "%s " % self.tipoEspecie.title()
 
 class Kennel(models.Model):
     kennelId = models.AutoField(primary_key=True)
@@ -25,7 +25,7 @@ class Kennel(models.Model):
     kennel = models.ManyToManyField(Especie, through='Raza')
 
     def __str__(self):
-        return "%s " % self.nombre
+        return "%s " % self.nombre.title()
 
 class Raza(models.Model):
     razaId = models.AutoField(primary_key=True)
@@ -35,4 +35,4 @@ class Raza(models.Model):
     kennel = models.ForeignKey(Kennel, on_delete=models.CASCADE, default=False, related_name='kennels')
 
     def __str__(self):
-       return "%s " % self.nombre_raza
+       return "%s " % self.nombre_raza.title()

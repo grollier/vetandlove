@@ -19,5 +19,5 @@ class Mascota(models.Model):
     owner = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='mascotas')    
 
     def __str__(self):
-        return "%s " % (self.nombreMascota)
+        return "%s " % (self.nombreMascota.title())
 

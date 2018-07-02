@@ -21,4 +21,4 @@ class Cliente(models.Model):
     las_edit = models.DateTimeField(_('updated_user'), default=timezone.now)
 
     def __str__(self):
-        return "%s " % self.nombreCliente
+        return "%s " % self.nombreCliente.title()

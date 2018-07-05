@@ -3,6 +3,7 @@ from django import forms
 from django.utils import timezone
 
 from cliente.models import Cliente
+from mascota.models import Mascota
 #Create your models here. 
 class Orden(models.Model):
     ordenId = models.AutoField(primary_key=True)

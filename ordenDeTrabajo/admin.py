@@ -4,6 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 
 from django.db import models
 from .models import *
+from cliente.models import Cliente
 
 # Register your models here.
 class EstadoInline(admin.TabularInline):
@@ -13,7 +14,7 @@ class EstadoInline(admin.TabularInline):
 
 class ServiciosInline(admin.TabularInline):
     model = Servicio
-    fields = ('servicios','mascota_servicio', 'precio_servicio')
+    fields = ('servicios', 'precio_servicio')
     max_num = 1
 
 class OrdenAdmin(admin.ModelAdmin):
@@ -24,5 +25,5 @@ class OrdenAdmin(admin.ModelAdmin):
         ('observaciones', {'classes': ('collapse',),
                 'fields': ('observaciones',)}),
     )
-    inlines = [ServiciosInline, EstadoInline]
+    inlines = [ServiciosInline, EstadoInline,]
 admin.site.register(Orden, OrdenAdmin)

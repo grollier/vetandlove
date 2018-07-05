@@ -16,12 +16,12 @@ class DireccionInline(admin.TabularInline):
 class TelefonoInline(admin.TabularInline):
     model = Telefono
     max_num = 1
-    
+
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nombreCliente', 'apellido' , 'email', 'is_active')
     list_filter = ('nombreCliente', 'is_active')
     fieldsets = (
-        ('Cliente Nuevo', {'fields': ('nombreCliente', 'apellido', 'email')}),
+        ('Cliente Nuevo', {'fields': ('nombreCliente', 'apellido', 'email', )}),
         (None, {'fields': ('fechaNacimiento',)}),
         ('Estatus', {
             'classes': ('extrapetty',),
@@ -29,5 +29,5 @@ class ClienteAdmin(admin.ModelAdmin):
         }),
     )
     search_fields = ('nombreCliente', 'email', 'mascotas')
-    inlines = [DireccionInline, TelefonoInline]
+    inlines = [DireccionInline, TelefonoInline,]
 admin.site.register(Cliente, ClienteAdmin,)
